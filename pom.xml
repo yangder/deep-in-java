@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yangdw</groupId>
+    <artifactId>deep-in-java</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <modules>
+        <module>week-01</module>
+        <module>week-02</module>
+        <module>week-03</module>
+        <module>week-04</module>
+        <module>week-05</module>
+        <module>week-06</module>
+        <module>week-07</module>
+    </modules>
+
+    <properties>
+
+    </properties>
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+</project>
