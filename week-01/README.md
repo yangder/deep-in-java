@@ -1,5 +1,5 @@
 ##### 1. 实现一个自定义的classloader，加载如下的文件，内容需要解码，读取的字节码需要解码，解码方式：255减去原有值，并执行成功。📎Hello.xlass.zip
-```java
+``` java
 package com.yangde.classloader;
 
 import java.io.ByteArrayOutputStream;
@@ -78,11 +78,11 @@ public class TestCustomClassLoader {
 }   
 ```
 #####**运行结果**
-```text
+``` text
 Hello, classLoader!
 ```
 ##### **2. 分析以下GC日志，尽可能详细的标注出GC发生时相关的信息。**
-```text
+``` text
 # 前面的时间格式是固定的，114.015表示GC和项目运行的相对时间，单位为秒，[Times: user=0.86 sys=0.00, real=0.28 secs]表示GC用户态消耗的CPU时间、内核态消耗的CPU时间、操作从开始到结束所经过的等待耗时，单位为秒
 
 # 初始标记，当前老年代的容量为2097152KK，在使用了106000K时开始进行CMS垃圾回收；当前堆内存使用1084619K，容量为3984640K，耗时0.2824583s，会STW
@@ -124,8 +124,10 @@ Hello, classLoader!
  >java -Denv=PRO -server -Xms4g -Xmx4g -Xmn2g -XX:MaxDirectMemorySize=512m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=512m -XX:-UseBiasedLocking -XX:-UseCounterDecay -XX:AutoBoxCacheMax=10240 -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:MaxTenuringThreshold=6 -XX:+ExplicitGCInvokesConcurrent -XX:+ParallelRefProcEnabled -XX:+PerfDisableSharedMem -XX:+AlwaysPreTouch -XX:-OmitStackTraceInFastThrow  -XX:+ExplicitGCInvokesConcurrent -XX:+ParallelRefProcEnabled -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/home/devjava/logs/ -Xloggc:/home/devjava/logs/lifecircle-tradecore-gc.log -XX:+PrintGCApplicationStoppedTime -XX:+PrintGCDateStamps -XX:+PrintGCDetails -javaagent:/home/devjava/ArmsAgent/arms-bootstrap-1.7.0-SNAPSHOT.jar -jar /home/devjava/lifecircle-tradecore/app/lifecircle-tradecore.jar
 
  参数|含义
-  --|:--`
+  --|:--
   -Denv=PRO|设置项目启动环境参数,拉取相应Apollo配置
+  
+  
 
 
  
