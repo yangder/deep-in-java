@@ -124,11 +124,35 @@ Hello, classLoader!
  >java -Denv=PRO -server -Xms4g -Xmx4g -Xmn2g -XX:MaxDirectMemorySize=512m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=512m -XX:-UseBiasedLocking -XX:-UseCounterDecay -XX:AutoBoxCacheMax=10240 -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:MaxTenuringThreshold=6 -XX:+ExplicitGCInvokesConcurrent -XX:+ParallelRefProcEnabled -XX:+PerfDisableSharedMem -XX:+AlwaysPreTouch -XX:-OmitStackTraceInFastThrow  -XX:+ExplicitGCInvokesConcurrent -XX:+ParallelRefProcEnabled -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/home/devjava/logs/ -Xloggc:/home/devjava/logs/lifecircle-tradecore-gc.log -XX:+PrintGCApplicationStoppedTime -XX:+PrintGCDateStamps -XX:+PrintGCDetails -javaagent:/home/devjava/ArmsAgent/arms-bootstrap-1.7.0-SNAPSHOT.jar -jar /home/devjava/lifecircle-tradecore/app/lifecircle-tradecore.jar
 
   | **参数** | **含义** |
-  | --- | --- |
-  | -Denv=PRO | 设置项目启动环境参数,拉取相应Apollo配置 |
-  |  |  |
-  |  |  |
-  
+  | --- | ---  |
+  | -Denv=PRO | 设置项目启动环境参数,拉取相应Apollo配置  |
+  | -server |	开启服务端模式  |
+  | -Xms4g	| 设置堆初始值为4g |
+  | -Xmx4g	| 设置堆最大值为4g |
+  | -Xmn2g	| 设置堆年轻代内存为2g |
+  | -XX:MaxDirectMemorySize=512m	| 设置堆外内存为512m |
+  | -XX:MetaspaceSize=128m	| 设置jvm元空间最小为128m |
+  | -XX:MaxMetaspaceSize=512m	| 设置jvm元空间最大为512m |
+  | -XX:-UseBiasedLocking	| 禁用偏向锁定功能 |
+  | -XX:-UseCounterDecay	| 禁止JIT调用计数器衰减 |
+  | -XX:AutoBoxCacheMax=10240	| 加大Integer Cache最大值为10240 |
+  | -XX:+UseConcMarkSweepGC	| 设置老年代使用CMS收集器 |
+  | -XX:CMSInitiatingOccupancyFraction=75 | 设置触发执行CMS回收当前年代区内存使用率为75% |
+  | -XX:+UseCMSInitiatingOccupancyOnly	| 禁止hostspot自行触发CMS GC,只根据占用情况作为开始执行CMS收集的标准 |
+  | -XX:MaxTenuringThreshold=6	| 新生代对象经过6次YGC进入老生代 |
+  | -XX:+ExplicitGCInvokesConcurrent	| 调用系统GC时会执行CMS而不是FG |
+  | -XX:+ParallelRefProcEnabled	| 并行处理Reference,如WeakReference |
+  | -XX:+PerfDisableSharedMem	| 关闭PerfData写入，避免高IO场景GC时因为写PerfData文件被阻塞 |
+  | -XX:+AlwaysPreTouch	|  启动时预申请内存 |
+  | -XX:-OmitStackTraceInFastThrow	| 关闭jvm错误堆栈信息优化（不输出） |
+  | -XX:+HeapDumpOnOutOfMemoryError	| 设置OOM异常，输出Heap Dump到指定文件 |
+  | -XX:HeapDumpPath=/home/devjava/logs/ |	设置Heap Dump日志文件的保存路径 |
+  | -Xloggc:/home/devjava/logs/lifecircle-tradecore-gc.log	| 设置gc日志输出的文件路径 |
+  | -XX:+PrintGCApplicationStoppedTime	| 设置gc日志中打印应用暂停时间 |
+  | -XX:+PrintGCDateStamps	| 设置gc日志打印日期时间戳 |
+  | -XX:+PrintGCDetails	| 设置gc日志打印详细信息 |
+  | -javaagent:/home/devjava/ArmsAgent/arms-bootstrap-1.7.0-SNAPSHOT.jar	| 加载arms的包,应用arms监控 |
+  | -jar/home/devjava/lifecircle-tradecore/app/lifecircle-tradecore.jar	| 指定要启动的项目jar包
 
 
  
