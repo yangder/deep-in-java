@@ -73,8 +73,8 @@ public class TestCustomClassLoader {
         CustomClassLoader classLoader = new CustomClassLoader();
         Class clazz = classLoader.loadClass("Hello");
         Object obj = clazz.newInstance();
-        for (Method method : clazz.getDeclaredMethods()) {
-            method.invoke(obj,null);
-        }
+        Method method = clazz.getDeclaredMethod("hello");
+        method.invoke(obj);
     }
+
 }   
