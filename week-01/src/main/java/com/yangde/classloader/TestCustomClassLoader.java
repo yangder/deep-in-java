@@ -5,8 +5,8 @@
 package com.yangde.classloader;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Method;
 
 /**
@@ -22,17 +22,16 @@ public class TestCustomClassLoader {
      */
     static class CustomClassLoader extends ClassLoader {
 
-        private String classPath = "/Users/yangdewei/IdeaProjects/fsdeepjava/deep-in-java/week-01/src/main/java/com/yangde/classloader/";
         private String classNameSuffix = ".xlass";
 
         /**
          * 加载xclass文件,读取到的字节码解码,解码方式:255减去原有值
          */
         private byte[] loadByte(String className) throws IOException {
-            FileInputStream fis = null;
+            InputStream fis = null;
             ByteArrayOutputStream bis = null;
             try {
-                fis = new FileInputStream(classPath + className + classNameSuffix);
+                fis = this.getClass().getClassLoader().getResourceAsStream(className + classNameSuffix);
                 bis = new ByteArrayOutputStream(1024);
                 int b;
                 while ((b = fis.read()) != -1) {

@@ -16,6 +16,7 @@
         <module>week-05</module>
         <module>week-06</module>
         <module>week-07</module>
+        <module>week-leetcode</module>
     </modules>
 
     <properties>
