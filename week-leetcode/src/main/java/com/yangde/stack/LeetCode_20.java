@@ -41,6 +41,8 @@ import java.util.Stack;
 public class LeetCode_20 {
 
     /**
+     * ☆☆☆
+     * 有效括号
      * stack.push()压栈处理,stack.pop()栈顶数据出栈,并删除,stack.peek()栈顶数据出栈不删除
      *
      * @param s
@@ -58,7 +60,7 @@ public class LeetCode_20 {
     }
 
     /**
-     * 因为符号是遵循顺序闭合,即先有左括号后又右括号,闭合的左右括号中的元素也会满足顺序闭合,循环字符过程中,将右括号先压栈
+     * 因为符号是遵循顺序闭合,即先有左括号后有右括号,闭合的左右括号中的元素也会满足顺序闭合,循环字符过程中,将右括号先压栈
      * 循环过程到右括号的时候,再通过stack.pop()出栈,并判断c != stack.pop()是否相等
      *
      * @param s
@@ -76,6 +78,7 @@ public class LeetCode_20 {
     }
 
     /**
+     * ☆☆☆☆
      * 如果符合条件的字符串每次会替换掉两个元素,循环s.length()/2
      *
      * @param s
